@@ -6,6 +6,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .header-text {
@@ -15,11 +17,23 @@
             margin: 20px 0;
         }
 
-        .task-row {
+        .main-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            margin: 10px 0;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .task-row {
+            display: flex;
+            gap: 10px;
         }
 
         .task-button {
@@ -27,7 +41,6 @@
             color: white;
             border: none;
             padding: 10px 20px;
-            margin-right: 10px;
             font-size: 16px;
             cursor: pointer;
             border-radius: 8px;
@@ -49,10 +62,9 @@
             padding: 10px;
             border: 1px solid #ccc;
             background-color: #f9f9f9;
-            max-height: 400px;
+            max-height: 80vh;
             overflow-y: auto;
-            width: 90%;
-            margin: 20px auto;
+            width: 500px;
         }
     </style>
     <script>
@@ -78,10 +90,10 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("task-container");
+            const container = document.getElementById("task-list");
 
             for (let i = 1; i <= 47; i++) {
-                if ([22, 23, 24, 25, 26, 27].includes(i)) continue; // pomiń brakujące
+                if ([22, 23, 24, 25, 26, 27].includes(i)) continue;
 
                 const fileName = `z${i}_vyn.html`;
 
@@ -107,7 +119,7 @@
 </head>
 <body>
     <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
-    <div id="task-container"></div>
+    <div class="main-container">
             <button onclick="openWindow('z1_vyn.html', 'okienko')">Otwórz z1</button>
             <button onclick="openWindow('z2_vyn.html', 'okienko')">Otwórz z2</button>
             <button onclick="openWindow('z3_vyn.html', 'okienko')">Otwórz z3</button>
@@ -180,7 +192,8 @@
             <button class="small-button" onclick="fetchSource('z40_vyn.html', 'source')">Zobacz kod z40</button>
             <button class="small-button" onclick="fetchSource('z46_vyn.html', 'source')">Zobacz kod z46</button>
             <button class="small-button" onclick="fetchSource('z47_vyn.html', 'source')">Zobacz kod z47</button>
-            < </div>
-    <pre id="source" class="source-code"></pre>
+        <div id="task-list" class="task-list"></div>
+        <pre id="source" class="source-code"></pre>
+    </div>
 </body>
 </html>
