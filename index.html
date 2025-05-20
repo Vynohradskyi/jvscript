@@ -5,9 +5,8 @@
     <title>Vynohradskyi Oleksandr</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
         .header-text {
@@ -19,16 +18,16 @@
 
         .main-container {
             display: flex;
-            justify-content: center;
             align-items: flex-start;
-            padding: 20px;
+            justify-content: center;
             gap: 40px;
+            padding: 20px;
         }
 
         .task-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .task-row {
@@ -47,8 +46,8 @@
         }
 
         .source-button {
-            background-color: #ddd;
-            color: black;
+            background-color: #ccc;
+            color: #000;
             border: none;
             padding: 8px 16px;
             font-size: 14px;
@@ -57,16 +56,24 @@
         }
 
         .source-code {
-            white-space: pre-wrap;
-            text-align: left;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            max-height: 80vh;
+            width: 600px;
+            height: 80vh;
             overflow-y: auto;
-            width: 500px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 14px;
+            white-space: pre-wrap;
         }
     </style>
+</head>
+<body>
+    <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
+    <div class="main-container">
+        <div id="task-list" class="task-list"></div>
+        <pre id="source" class="source-code">← Kliknij "Zobacz kod", aby wyświetlić źródło zadania</pre>
+    </div>
+
     <script>
         let windows = [];
 
@@ -74,8 +81,7 @@
             if (windows[name] && !windows[name].closed) {
                 windows[name].close();
             }
-            let newWindow = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
-            windows[name] = newWindow;
+            windows[name] = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
         }
 
         function fetchSource(url, elementId) {
@@ -90,7 +96,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("task-list");
+            const taskList = document.getElementById("task-list");
 
             for (let i = 1; i <= 47; i++) {
                 if ([22, 23, 24, 25, 26, 27].includes(i)) continue;
@@ -98,21 +104,21 @@
                 const fileName = `z${i}_vyn.html`;
 
                 const row = document.createElement("div");
-                row.classList.add("task-row");
+                row.className = "task-row";
 
                 const openBtn = document.createElement("button");
                 openBtn.textContent = `Otwórz z${i}`;
                 openBtn.className = "task-button";
-                openBtn.onclick = () => openWindow(fileName, 'okienko');
+                openBtn.onclick = () => openWindow(fileName, "okienko");
 
-                const codeBtn = document.createElement("button");
-                codeBtn.textContent = `Zobacz kod z${i}`;
-                codeBtn.className = "source-button";
-                codeBtn.onclick = () => fetchSource(fileName, 'source');
+                const viewBtn = document.createElement("button");
+                viewBtn.textContent = `Zobacz kod z${i}`;
+                viewBtn.className = "source-button";
+                viewBtn.onclick = () => fetchSource(fileName, "source");
 
                 row.appendChild(openBtn);
-                row.appendChild(codeBtn);
-                container.appendChild(row);
+                row.appendChild(viewBtn);
+                taskList.appendChild(row);
             }
         });
     </script>
