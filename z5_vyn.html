@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+     <meta charset="utf-8">
+     <title>Praca z oknami- Vynohradskyi</title>   
+    </head>
+    <body>
+        <script>
+            function WinOpen_z1()
+            {
+                window.open("grafika1.html","okienko_z1","toolbar=no,directories=no,height=190,width=165,left=400");
+            }
+            function WinOpen_z2()
+            {
+                window.open("grafika2.html","okienko_z2","toolbar=no,directories=no,height=190,width=165,left=600");
+            }
+            function WinOpen_z3()
+            {
+                window.open("grafika3.html","okienko_z3","toolbar=no,directories=no,height=190,width=165,left=800");
+            }
+            function WinOpen_z4()
+            {
+                window.open("grafika4.html","okienko_z4","toolbar=no,directories=no,height=190,width=165,left=1000");
+            }
+            function okno_zamknij()
+            {
+                window.close()
+            }
+
+            document.write("wykonał: Oleksandr Vynohradskyi 30, mam układ [(30) mod 4] układ 4".bold().fontsize(7).fontcolor("red")+"<br><br>")
+        </script>
+        <form align="center">
+            <input type="button" value="grafika1" onclick="WinOpen_z1('')">
+            <input type="button" value="grafika2" onclick="WinOpen_z2('')">
+            <input type="button" value="grafika3" onclick="WinOpen_z3('')">
+            <input type="button" value="grafika4" onclick="WinOpen_z4('')"><br><br><br><br><br>
+            <input type="button" value="zamknij okno" onclick="okno_zamknij()">
+        </form>
+        <button class="button" onclick="window.location.href='index.html'"><Vynohradskyi-Zadania>wróc</Vynohradskyi-Zadania></button>
+    </body>
+    </html>

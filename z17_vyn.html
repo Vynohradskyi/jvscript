@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Shemet-Zadanie17</title>
+    <style>
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" onclick="window.location.href='index.html'"><Vynohradskyi-Zadania>wróc</Vynohradskyi-Zadania></button>
+
+    <h2>Teoria</h2>
+    <p><strong><u>1. Wymień cztery sposoby wyprowadzania danych w JS:</u></strong></p>
+    <p>1. Z użyciem <code>document.write()</code></p>
+    <p>2. Z użyciem okienka <code>alert()</code></p>
+    <p>3. Do okienek formularza</p>
+    <p>4. Do tabeli</p>
+
+    <p><strong><u>2. Czym jest funkcja w JS? Omów przy użyciu 4 podpunktów:</u></strong></p>
+    <p>1. Funkcja w JavaScript to samodzielny blok kodu, który wykonuje określone zadanie i może być wywoływany wielokrotnie w różnych miejscach programu.</p>
+    <p>2. Funkcja jest tworzona za pomocą specjalnej składni i nadawana jej jest nazwa, co pozwala na jej późniejsze użycie w kodzie.</p>
+    <p>3. Funkcja może przyjmować dane wejściowe (parametry) i zwracać wynik (wartość), co umożliwia jej elastyczne wykorzystanie w różnych sytuacjach. <code>suma_kry(a, b)</code>.</p>
+    <p>4. W JavaScript istnieje kilka sposobów definiowania funkcji, m.in. funkcje deklarowane, wyrażenia funkcyjne oraz funkcje strzałkowe, co daje programiście dużą swobodę w strukturze kodu. <code>return</code>.</p>
+
+    <p><strong><u>3. Omów metody getElementsByName, getElementById, getElementByTagName (może być w postaci tabeli):</u></strong></p>
+    <table border="1">
+        <tr>
+            <th>Metoda</th>
+            <th>Opis</th>
+        </tr>
+        <tr>
+            <td><code>getElementById("id")</code></td>
+            <td>Dostęp do wszystkich elementów o konkretnej wartości atrybutu <code>id</code>.</td>
+        </tr>
+        <tr>
+            <td><code>getElementsByTagName("znacznik")</code></td>
+            <td>Dostęp do wszystkich elementów o typie znacznika, np. <code>P</code> lub <code>DIV</code>.</td>
+        </tr>
+        <tr>
+            <td><code>getElementsByName("nazwa")</code></td>
+            <td>Dostęp do wszystkich elementów o konkretnej wartości atrybutu <code>name</code>.</td>
+        </tr>
+    </table>
+
+    <p><strong><u>4. Omów właściwości innerHTML, innerText, className (każdą osobno):</u></strong></p>
+    <p><strong>innerHTML</strong> – jest to właściwość, która umożliwia odczyt, zmodyfikowanie, wstawienie, albo usunięcie kodu HTML z danego elementu HTML np. w tabeli.</p>
+    <p><strong>innerText</strong> – umożliwia określenie ciągu znaków, który zostanie umieszczony w elemencie.</p>
+    <p><strong>className</strong> – umożliwia określenie klasy CSS użytej do prezentacji elementu.</p>
+
+    <h2>Przykład</h2>
+    <div id="nazwa"></div>
+    <script>
+        document.getElementById("nazwa").innerHTML = "Witaj";
+        document.getElementById("nazwa").className = "wyroznienieCzerwone";
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+ <head> 
+ <title> proste obliczenia</title> 
+ <meta charset="utf-8"> 
+ </head> 
+<body>
+<div style="color:rgb(111, 0, 255);font-size:50px;">
+ <script language="JavaScript">
+var liczba1=prompt("Podaj pierwszą liczbę A=","");
+var liczba2=prompt("Podaj drugą liczbę B=","");
+var a_vyn=parseFloat(liczba1);
+var b_vyn=parseFloat(liczba2);
+ document.write("A="+a_vyn+" <br> ");
+ document.write("B="+b_vyn+" <br> ");
+ d=a_vyn*a_vyn*a_vyn;
+ e=3*(a_vyn*a_vyn)*b_vyn;
+ f=3*(b_vyn*b_vyn)*a_vyn;
+ g=b_vyn*b_vyn*b_vyn;
+ suma=d+e+f+g;
+ document.write("("+a_vyn+"+"+b_vyn+")"+"^3 = "+a_vyn+"^3 + 3*(("+a_vyn+")^2)*("+b_vyn+") + 3*("+a_vyn+")*"+"(("+b_vyn+")^2) + "+b_vyn+"^3 ="+d+"+"+e+"+"+f+"+"+g+"="+suma+"<br>");
+ </script>
+</div>
+<button class="button" onclick="window.location.href='index.html'"><Shemet-Zadania>wróc</Shemet-Zadania></button>

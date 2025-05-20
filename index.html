@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8">
+    <title>Vynohradskyi Oleksandr</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.25rem;
+        }
+        .column button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: .625rem 1.25rem;
+            margin: .3125rem;
+            cursor: pointer;
+        }
+        .column .small-button {
+            padding: .3125rem .625rem;
+        }
+        .header-text {
+            text-align: center;
+            color: purple;
+            font-size: 50px;
+            margin-top: 1.25rem;
+        }
+        .source-code {
+            white-space: pre-wrap;
+            text-align: left;
+            margin: 1.25rem;
+            padding: .625rem;
+            border: .0625rem solid #ccc;
+            background-color: #f9f9f9;
+            max-height: 25rem;
+            overflow-y: auto;
+        }
+    </style>
+    <script language="JavaScript">
+        let windows = [];
+
+        function openWindow(url, name) {
+           
+            let existingWindow = windows[name];
+            if (existingWindow && !existingWindow.closed) {
+                existingWindow.close();
+            }
+
+            let newWindow = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
+            
+            windows[name] = newWindow;
+        }
+
+        function fetchSource(url, elementId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById(elementId).innerText = `Błąd ładowania: ${error.message}`;
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
+    <div class="container">
+        <div class="column">
+            <button onclick="openWindow('z1_vyn.html', 'okienko')">Otwórz z1</button>
+            <button onclick="openWindow('z2_vyn.html', 'okienko')">Otwórz z2</button>
+            <button onclick="openWindow('z3_vyn.html', 'okienko')">Otwórz z3</button>
+            <button onclick="openWindow('z4_vyn.html', 'okienko')">Otwórz z4</button>
+            <button onclick="openWindow('z5_vyn.html', 'okienko')">Otwórz z5</button>
+            <button onclick="openWindow('z6_vyn.html', 'okienko')">Otwórz z6</button>
+            <button onclick="openWindow('z7_vyn.html', 'okienko')">Otwórz z7</button>
+            <button onclick="openWindow('z8_vyn.html', 'okienko')">Otwórz z8</button>
+            <button onclick="openWindow('z9_vyn.html', 'okienko')">Otwórz z9</button>
+            <button onclick="openWindow('z10_vyn.html', 'okienko')">Otwórz z10</button>
+            <button onclick="openWindow('z11_vyn.html', 'okienko')">Otwórz z11</button>
+            <button onclick="openWindow('z12_vyn.html', 'okienko')">Otwórz z12</button>
+            <button onclick="openWindow('z13_vyn.html', 'okienko')">Otwórz z13</button>
+            <button onclick="openWindow('z14_vyn.html', 'okienko')">Otwórz z14</button>
+            <button onclick="openWindow('z15_vyn.html', 'okienko')">Otwórz z15</button>
+            <button onclick="openWindow('z16_vyn.html', 'okienko')">Otwórz z16</button>
+            <button onclick="openWindow('z17_vyn.html', 'okienko')">Otwórz z17</button>
+            <button onclick="openWindow('z18_vyn.html', 'okienko')">Otwórz z18</button>
+            <button onclick="openWindow('z19_vyn.html', 'okienko')">Otwórz z19</button>
+            <button onclick="openWindow('z20_vyn.html', 'okienko')">Otwórz z20</button>
+            <button onclick="openWindow('z21_vyn.html', 'okienko')">Otwórz z21</button>
+            <button onclick="openWindow('z28_vyn.html', 'okienko')">Otwórz z28</button>
+            <button onclick="openWindow('z29_vyn.html', 'okienko')">Otwórz z29</button>
+            <button onclick="openWindow('z30_vyn.html', 'okienko')">Otwórz z30</button>
+            <button onclick="openWindow('z31_vyn.html', 'okienko')">Otwórz z31</button>
+            <button onclick="openWindow('z32_vyn.html', 'okienko')">Otwórz z32</button>
+			<button onclick="openWindow('z33_vyn.html', 'okienko')">Otwórz z33</button>
+			<button onclick="openWindow('z34_vyn.html', 'okienko')">Otwórz z34</button>
+            <button onclick="openWindow('z35_vyn.html', 'okienko')">Otwórz z35</button>
+            <button onclick="openWindow('z36_vyn.html', 'okienko')">Otwórz z36</button>
+            <button onclick="openWindow('z37_vyn.html', 'okienko')">Otwórz z37</button>
+            <button onclick="openWindow('z38_vyn.html', 'okienko')">Otwórz z38</button>
+            <button onclick="openWindow('z39_vyn.html', 'okienko')">Otwórz z39</button>
+            <button onclick="openWindow('z40_vyn.html', 'okienko')">Otwórz z40</button>
+            <button onclick="openWindow('z46_vyn.html', 'okienko')">Otwórz z46</button>
+            <button onclick="openWindow('z47_vyn.html', 'okienko')">Otwórz z47</button>
+        </div>
+        <div class="column">
+            <button class="small-button" onclick="fetchSource('z1_vyn.html', 'source')">Zobacz kod z1</button>
+            <button class="small-button" onclick="fetchSource('z2_vyn.html', 'source')">Zobacz kod z2</button>
+            <button class="small-button" onclick="fetchSource('z3_shem.html', 'source')">Zobacz kod z3</button>
+            <button class="small-button" onclick="fetchSource('z4_shem.html', 'source')">Zobacz kod z4</button>
+            <button class="small-button" onclick="fetchSource('z5_shem.html', 'source')">Zobacz kod z5</button>
+            <button class="small-button" onclick="fetchSource('z6_shem.html', 'source')">Zobacz kod z6</button>
+            <button class="small-button" onclick="fetchSource('z7_shem.html', 'source')">Zobacz kod z7</button>
+            <button class="small-button" onclick="fetchSource('z8_shem.html', 'source')">Zobacz kod z8</button>
+            <button class="small-button" onclick="fetchSource('z9_shem.html', 'source')">Zobacz kod z9</button>
+            <button class="small-button" onclick="fetchSource('z10_shem.html', 'source')">Zobacz kod z10</button>
+            <button class="small-button" onclick="fetchSource('z11_shem.html', 'source')">Zobacz kod z11</button>
+            <button class="small-button" onclick="fetchSource('z12_shem.html', 'source')">Zobacz kod z12</button>
+            <button class="small-button" onclick="fetchSource('z13_shem.html', 'source')">Zobacz kod z13</button>
+            <button class="small-button" onclick="fetchSource('z14_shem.html', 'source')">Zobacz kod z14</button>
+            <button class="small-button" onclick="fetchSource('z15_shem.html', 'source')">Zobacz kod z15</button>
+            <button class="small-button" onclick="fetchSource('z16_shem.html', 'source')">Zobacz kod z16</button>
+            <button class="small-button" onclick="fetchSource('z17_shem.html', 'source')">Zobacz kod z17</button>
+            <button class="small-button" onclick="fetchSource('z18_shem.html', 'source')">Zobacz kod z18</button>
+            <button class="small-button" onclick="fetchSource('z19_shem.html', 'source')">Zobacz kod z19</button>
+            <button class="small-button" onclick="fetchSource('z20_shem.html', 'source')">Zobacz kod z20</button>
+            <button class="small-button" onclick="fetchSource('z21_shem.html', 'source')">Zobacz kod z21</button>
+            <button class="small-button" onclick="fetchSource('z28_shem.html', 'source')">Zobacz kod z28</button>
+            <button class="small-button" onclick="fetchSource('z29_shem.html', 'source')">Zobacz kod z29</button>
+            <button class="small-button" onclick="fetchSource('z30_shem.html', 'source')">Zobacz kod z30</button>
+            <button class="small-button" onclick="fetchSource('z31_shem.html', 'source')">Zobacz kod z31</button>
+            <button class="small-button" onclick="fetchSource('z32_shem.html', 'source')">Zobacz kod z32</button>
+            <button class="small-button" onclick="fetchSource('z35_shem.html', 'source')">Zobacz kod z35</button>
+            <button class="small-button" onclick="fetchSource('z36_shem.html', 'source')">Zobacz kod z36</button>
+            <button class="small-button" onclick="fetchSource('z37_shem.html', 'source')">Zobacz kod z37</button>
+            <button class="small-button" onclick="fetchSource('z38_shem.html', 'source')">Zobacz kod z38</button>
+            <button class="small-button" onclick="fetchSource('z39_shem.html', 'source')">Zobacz kod z39</button>
+            <button class="small-button" onclick="fetchSource('z40_shem.html', 'source')">Zobacz kod z40</button>
+            <button class="small-button" onclick="fetchSource('z46_shem.html', 'source')">Zobacz kod z46</button>
+            <button class="small-button" onclick="fetchSource('z47_shem.html', 'source')">Zobacz kod z47</button>
+            <pre id="source" class="source-code"></pre>
+        </div>
+    </div>
+</body>
+</html>

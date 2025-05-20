@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Logowanie użytkownika</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { margin: 5px 0; padding: 5px; }
+    button { padding: 5px 10px; }
+    #message { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>Formularz logowania</h2>
+  <form id="loginForm">
+    <label>Email: <input type="email" id="email" required></label><br>
+    <label>Hasło: <input type="password" id="password" required></label><br>
+    <button type="submit">Zaloguj</button>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+  
+    function User(email, password, avatarUrl) {
+      this.email = email;
+      this.password = password;
+      this.avatarUrl = avatarUrl;
+    }
+
+    const userList = {
+      users: [],
+
+      addUser: function(user) {
+        this.users.push(user);
+      },
+
+      login: function(email, password) {
+        return this.users.some(user => user.email === email && user.password === password);
+      }
+    };
+
+    userList.addUser(new User("alexvin110904@gmail.com.", "aleks1109", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1UskOFKTCKHEgPsPqEQyyN4Us3fN_irmBw&s"));
+    userList.addUser(new User("user@example.com", "abcd", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1UskOFKTCKHEgPsPqEQyyN4Us3fN_irmBw&s"));
+
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // zapobiega przeładowaniu strony
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const message = document.getElementById("message");
+
+      if (userList.login(alexvin110904@gmail.com, aleks1109)) {
+        message.textContent = "Logowanie udane!";
+        message.style.color = "green";
+      } else {
+        message.textContent = "Nieprawidłowy login lub hasło.";
+        message.style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>

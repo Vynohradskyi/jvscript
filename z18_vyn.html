@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <script>
+        function suma_vyn(a, b) {
+            return a + b;
+        }
+
+        function odejmowanie_vyn(a, b) {
+            return a - b;
+        }
+
+        function mnozenie_vyn(a, b) {
+            return a * b;
+        }
+
+        function od_kwadratu_vyn(a, b) {
+            return [a * a, b * b];
+        }
+
+        function reszta_z_dzielenia_a_przez_b_vyn(a, b) {
+            return a % b;
+        }
+
+        function testFunctions() {
+            var a = parseFloat(prompt("a=", ""));
+            var b = parseFloat(prompt("b=", ""));
+            console.log("suma_vyn(a, b):", suma_vyn(a, b));
+            console.log("odejmowanie_vyn(a, b):", odejmowanie_vyn(a, b));
+            console.log("mnozenie_vyn(a, b):", mnozenie_vyn(a, b));
+            console.log("od_kwadratu_vyn(a, b):", od_kwadratu_vyn(a, b));
+            console.log("reszta_z_dzielenia_a_przez_b_vyn(a, b):", reszta_z_dzielenia_a_przez_b_vyn(a, b));
+            document.write("suma_vyn(a, b): " + suma_vyn(a, b) + "<br>");
+            document.write("odejmowanie_vyn(a, b): " + odejmowanie_vyn(a, b) + "<br>");
+            document.write("mnozenie_vyn(a, b): " + mnozenie_vyn(a, b) + "<br>");
+            document.write("od_kwadratu_vyn(a, b): " + od_kwadratu_vyn(a, b) + "<br>");
+            document.write("reszta_z_dzielenia_a_przez_b_vyn(a, b): " + reszta_z_dzielenia_a_przez_b_vyn(a, b) + "<br>");
+        }
+    </script>
+     <button class="button" onclick="window.location.href='index.html'"><Vynohradskyi-Zadania>wróc</Vynohradskyi-Zadania></button>
+</head>
+<body onload="testFunctions()">
+   
+</body>
+</html></body>

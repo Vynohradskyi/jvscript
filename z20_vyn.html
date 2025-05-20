@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 20</title>
+    <script>
+        function AB_kry(xa, ya, xb, yb) {
+            return Math.sqrt(Math.pow(xb - xa, 2) + Math.pow(yb - ya, 2));
+        }
+
+        function BC_kry(xb, yb, xc, yc) {
+            return Math.sqrt(Math.pow(xc - xb, 2) + Math.pow(yc - yb, 2));
+        }
+
+        function AC_kry(xa, ya, xc, yc) {
+            return Math.sqrt(Math.pow(xc - xa, 2) + Math.pow(yc - ya, 2));
+        }
+
+        function calculateSides() {
+            const xa = parseFloat(document.getElementById('xa_vyn').value);
+            const ya = parseFloat(document.getElementById('ya_vyn').value);
+            const xb = parseFloat(document.getElementById('xb_vyn').value);
+            const yb = parseFloat(document.getElementById('yb_vyn').value);
+            const xc = parseFloat(document.getElementById('xc_vyn').value);
+            const yc = parseFloat(document.getElementById('yc_vyn').value);
+
+            const ab = AB_kry(xa, ya, xb, yb);
+            const bc = BC_kry(xb, yb, xc, yc);
+            const ac = AC_kry(xa, ya, xc, yc);
+
+            document.getElementById('result').innerText = `AB: ${ab.toFixed(2)}, BC: ${bc.toFixed(2)}, AC: ${ac.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Oblicz długości boków trójkąta</h1>
+    <form onsubmit="calculateSides(); return false;">
+        <label for="xa_vyn">A(xa):</label>
+        <input type="number" id="xa_vyn" step="any" required>
+        <label for="ya_vyn">A(ya):</label>
+        <input type="number" id="ya_vyn" step="any" required><br>
+        <label for="xb_vyn">B(xb):</label>
+        <input type="number" id="xb_vyn" step="any" required>
+        <label for="yb_vyn">B(yb):</label>
+        <input type="number" id="yb_vyn" step="any" required><br>
+        <label for="xc_vyn">C(xc):</label>
+        <input type="number" id="xc_vyn" step="any" required>
+        <label for="yc_vyn">C(yc):</label>
+        <input type="number" id="yc_vyn" step="any" required><br>
+        <button type="submit">Oblicz</button>
+    </form>
+    <p id="result"></p>
+    <button class="button" onclick="window.location.href='index.html'"><Vynohradskyi-Zadania>wróc</Vynohradskyi-Zadania></button>
+</body>
+</html>

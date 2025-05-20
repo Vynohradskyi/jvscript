@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Proste obliczenia</title>
+</head>
+<body>
+<div style="color:green;font-size:43px;">
+    <script language="JavaScript">
+        var d1_she = prompt("D1=", "");
+        var d2_she = prompt("D2=", "");
+        var g1_she = prompt("G1=", "");
+        var g2_she = prompt("G2=", "");
+        var d_sek;
+        var g_sek;
+        var roz;
+        var roz_g;
+
+        var a = parseFloat(d1_she);
+        var b = parseFloat(d2_she);
+        var c = parseFloat(g1_she);
+        var d = parseFloat(g2_she);
+
+        d_sek = 86400; 
+        g_sek = 3600; 
+        roz = a - b;
+        roz_g = c - d;
+
+        var total_seconds = (roz * d_sek) + (roz_g * g_sek);
+
+        document.write("ilość sekund=" + total_seconds + " sekund <br>");
+    </script>
+</div>
+<button class="button" onclick="window.location.href='index.html'"><Vynohradskyi-Zadania>wróc</Vynohradskyi-Zadania></button>
+</body>
+</html>

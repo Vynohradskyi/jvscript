@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Vynohradskyi-Zadanie39</title>
+  <style>
+    body {
+      background-color: silver;
+      color: green;
+      font-size: 40px;
+    }
+    button {
+      font-size: 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const imie = "Oleksandr";
+    const nazwisko = "Vynohradskyi";
+    const dzienUrodzenia = 11;
+    const numerWDzienniku = 30; 
+
+    const liczba1 = imie.length;
+    const liczba2 = liczba1 + 7;
+    const liczba3 = nazwisko.length;
+    const liczba4 = liczba3 + 4;
+    const rozmiarCzcionki = 40 + (numerWDzienniku % 7);
+
+    document.write(
+      `<div style="font-size:${rozmiarCzcionki}px;">
+        Imię i nazwisko: ${imie} ${nazwisko}<br>
+        Liczba1 (litery imienia): ${liczba1}<br>
+        Liczba2 (imie + 7): ${liczba2}<br>
+        Liczba3 (litery nazwiska): ${liczba3}<br>
+        Liczba4 (nazwisko + 4): ${liczba4}<br>
+      </div><hr>`
+    );
+  </script>
+
+  <button onclick="pokazTeorie()">1. Teoria operatorów logicznych</button>
+  <button onclick="sprawdzPrzedzial()">2. Czy liczba należy do przedziału (od;do]</button>
+  <button onclick="sprawdzPrzedzialNieskonczony()">3. Czy liczba należy do (-∞;liczba1) lub [liczba2;+∞)</button>
+
+  <script>
+    function pokazTeorie() {
+      alert("Operator && – logiczne 'i'\nOperator || – logiczne 'lub'\nOperator ! – zaprzeczenie");
+    }
+
+    function sprawdzPrzedzial() {
+      const liczba = parseFloat(prompt("Podaj liczbę do sprawdzenia (czy w przedziale (" + liczba3 + "; " + (liczba3 + 20) + "]):"));
+      const od = liczba3;
+      const do_ = liczba3 + 20;
+
+      if (liczba > od && liczba <= do_) {
+        alert("Liczba należy do przedziału (" + od + "; " + do_ + "]");
+      } else {
+        alert("Liczba NIE należy do przedziału (" + od + "; " + do_ + "]");
+      }
+    }
+
+    function sprawdzPrzedzialNieskonczony() {
+      const liczba = parseFloat(prompt("Podaj liczbę do sprawdzenia:"));
+      if (liczba < liczba1 || liczba >= liczba2) {
+        alert("Liczba należy do (-∞;" + liczba1 + ") lub [" + liczba2 + ";+∞)");
+      } else {
+        alert("Liczba NIE należy do przedziałów!");
+      }
+    }
+  </script>
+</body>
+</html>
