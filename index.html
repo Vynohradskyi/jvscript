@@ -49,29 +49,61 @@
         }
     </style>
     <script>
-        let windows = [];
+    let windows = [];
 
-        function openWindow(url, name) {
-            let existingWindow = windows[name];
-            if (existingWindow && !existingWindow.closed) {
-                existingWindow.close();
-            }
-
-            let newWindow = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
-            windows[name] = newWindow;
+    function openWindow(url, name) {
+        let existingWindow = windows[name];
+        if (existingWindow && !existingWindow.closed) {
+            existingWindow.close();
         }
 
-        function fetchSource(url, elementId) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(elementId).innerText = data;
-                })
-                .catch(error => {
-                    document.getElementById(elementId).innerText = `Błąd ładowania: ${error.message}`;
-                });
-        }
-    </script>
+        let newWindow = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
+        windows[name] = newWindow;
+    }
+
+    function fetchSource(url, elementId) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById(elementId).innerText = data;
+            })
+            .catch(error => {
+                document.getElementById(elementId).innerText = `Błąd ładowania: ${error.message}`;
+            });
+    }
+
+    // Automatyczne tworzenie przycisków w parach
+    document.addEventListener("DOMContentLoaded", function () {
+        const wrapper = document.getElementById("buttons-wrapper");
+
+        const zadania = Array.from({ length: 47 }, (_, i) => i + 1)
+            .filter(n => ![22, 23, 24, 25, 26, 27].includes(n)); // jeśli nie masz tych zadań
+
+        zadania.forEach(nr => {
+            const name = `z${nr}_vyn.html`;
+
+            const container = document.createElement("div");
+            container.style.display = "flex";
+            container.style.flexDirection = "column";
+            container.style.alignItems = "center";
+            container.style.marginBottom = "10px";
+
+            const openBtn = document.createElement("button");
+            openBtn.textContent = `Otwórz z${nr}`;
+            openBtn.onclick = () => openWindow(name, 'okienko');
+
+            const sourceBtn = document.createElement("button");
+            sourceBtn.textContent = `Zobacz kod z${nr}`;
+            sourceBtn.classList.add("small-button");
+            sourceBtn.onclick = () => fetchSource(name, 'source');
+
+            container.appendChild(openBtn);
+            container.appendChild(sourceBtn);
+
+            wrapper.appendChild(container);
+        });
+    });
+</script>
 </head>
 <body>
     <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
