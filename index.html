@@ -5,65 +5,75 @@
     <title>Vynohradskyi Oleksandr</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
+        .header-text {
+            text-align: center;
+            color: purple;
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        .main-container {
             display: flex;
-            height: 100vh;
-        }
-
-        .left-panel {
-            width: 50%;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
             padding: 20px;
-            background-color: #f0f0f0;
-            overflow-y: auto;
         }
 
-        .right-panel {
-            width: 50%;
-            padding: 20px;
-            border-left: 1px solid #ccc;
-            overflow-y: auto;
-            background-color: #fff;
-        }
-
-        .task {
+        .task-list {
             display: flex;
-            align-items: center;
-            margin-bottom: 10px;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .task button {
-            margin-right: 10px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
+        .task-row {
+            display: flex;
+            gap: 10px;
         }
 
-        .open-btn {
+        .task-button {
             background-color: green;
             color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
         }
 
-        .code-btn {
+        .source-button {
             background-color: #ccc;
             color: #000;
-        }
-
-        h1 {
-            text-align: center;
-            color: green;
-            padding: 10px;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 6px;
         }
 
         .source-code {
+            width: 600px;
+            height: 80vh;
+            overflow-y: auto;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 14px;
             white-space: pre-wrap;
-            text-align: left;
         }
     </style>
+</head>
+<body>
+    <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
+    <div class="main-container">
+        <div id="task-list" class="task-list"></div>
+        <pre id="source" class="source-code">← Kliknij "Zobacz kod", aby wyświetlić źródło zadania</pre>
+    </div>
+
     <script>
         let windows = [];
 
@@ -71,58 +81,51 @@
             if (windows[name] && !windows[name].closed) {
                 windows[name].close();
             }
-
-            windows[name] = window.open(url, name, "toolbar=no,directories=no,height=600,width=600,top=100,left=100");
+            windows[name] = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
         }
 
-        function fetchSource(url) {
+        function fetchSource(url, elementId) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('source').innerText = data;
+                    document.getElementById(elementId).innerText = data;
                 })
                 .catch(error => {
-                    document.getElementById('source').innerText = `Błąd ładowania: ${error.message}`;
+                    document.getElementById(elementId).innerText = `Błąd ładowania: ${error.message}`;
                 });
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const taskList = document.getElementById("task-list");
+
+            for (let i = 1; i <= 47; i++) {
+                if ([22, 23, 24, 25, 26, 27].includes(i)) continue;
+
+                const fileName = `z${i}_vyn.html`;
+
+                const row = document.createElement("div");
+                row.className = "task-row";
+
+                const openBtn = document.createElement("button");
+                openBtn.textContent = `Otwórz z${i}`;
+                openBtn.className = "task-button";
+                openBtn.onclick = () => openWindow(fileName, "okienko");
+
+                const viewBtn = document.createElement("button");
+                viewBtn.textContent = `Zobacz kod z${i}`;
+                viewBtn.className = "source-button";
+                viewBtn.onclick = () => fetchSource(fileName, "source");
+
+                row.appendChild(openBtn);
+                row.appendChild(viewBtn);
+                taskList.appendChild(row);
+            }
+        });
     </script>
 </head>
 <body>
-    <h1>Zadania JavaScript - Vynohradskyi Oleksandr 3G_2</h1>
-    <div class="container">
-        <div class="left-panel" id="buttons-container">
-            <!-- Tu będą przyciski zadań -->
-        </div>
-        <div class="right-panel">
-            <pre id="source" class="source-code">Wybierz zadanie, aby zobaczyć kod...</pre>
-        </div>
-    </div>
-
-    <script>
-        const container = document.getElementById('buttons-container');
-        const zadania = [];
-
-        for (let i = 1; i <= 47; i++) {
-            if (i >= 22 && i <= 27) continue; // Pomijamy zadania 22–27
-
-            const fileName = `z${i}_vyn.html`;
-
-            const div = document.createElement('div');
-            div.className = 'task';
-
-            const openBtn = document.createElement('button');
-            openBtn.className = 'open-btn';
-            openBtn.innerText = `Otwórz z${i}`;
-            openBtn.onclick = () => openWindow(fileName, `zad${i}`);
-
-            const codeBtn = document.createElement('button');
-            codeBtn.className = 'code-btn';
-            codeBtn.innerText = `Zobacz kod z${i}`;
-            codeBtn.onclick = () => fetchSource(fileName);
-
-            div.appendChild(openBtn);
-            div.appendChild(codeBtn);
-            container.appendChild(div);
+    <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
+    <div class="main-container">
             <button onclick="openWindow('z1_vyn.html', 'okienko')">Otwórz z1</button>
             <button onclick="openWindow('z2_vyn.html', 'okienko')">Otwórz z2</button>
             <button onclick="openWindow('z3_vyn.html', 'okienko')">Otwórz z3</button>
@@ -197,6 +200,6 @@
             <button class="small-button" onclick="fetchSource('z47_vyn.html', 'source')">Zobacz kod z47</button>
         <div id="task-list" class="task-list"></div>
         <pre id="source" class="source-code"></pre>
-    </script>
+    </div>
 </body>
 </html>
