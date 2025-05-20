@@ -17,19 +17,22 @@
             margin: 1.25rem;
         }
         .column button {
-            background-color: purple;
+            background-color: green;
             color: white;
             border: none;
-            padding: .625rem 1.25rem;
-            margin: .3125rem;
+            padding: 0.8rem 1.5rem;
+            margin: 0.4rem;
+            font-size: 16px;
             cursor: pointer;
+            border-radius: 6px;
         }
         .column .small-button {
-            padding: .3125rem .625rem;
+            padding: 0.6rem 1rem;
+            font-size: 15px;
         }
         .header-text {
             text-align: center;
-            color: purple;
+            color: green;
             font-size: 50px;
             margin-top: 1.25rem;
         }
@@ -37,25 +40,24 @@
             white-space: pre-wrap;
             text-align: left;
             margin: 1.25rem;
-            padding: .625rem;
-            border: .0625rem solid #ccc;
+            padding: 0.625rem;
+            border: 1px solid #ccc;
             background-color: #f9f9f9;
             max-height: 25rem;
             overflow-y: auto;
+            width: 100%;
         }
     </style>
-    <script language="JavaScript">
+    <script>
         let windows = [];
 
         function openWindow(url, name) {
-           
             let existingWindow = windows[name];
             if (existingWindow && !existingWindow.closed) {
                 existingWindow.close();
             }
 
             let newWindow = window.open(url, name, "toolbar=no,directories=no,height=380,width=380,top=200,left=500");
-            
             windows[name] = newWindow;
         }
 
@@ -74,7 +76,6 @@
 <body>
     <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
     <div class="container">
-        <div class="column">
             <button onclick="openWindow('z1_vyn.html', 'okienko')">Otwórz z1</button>
             <button onclick="openWindow('z2_vyn.html', 'okienko')">Otwórz z2</button>
             <button onclick="openWindow('z3_vyn.html', 'okienko')">Otwórz z3</button>
