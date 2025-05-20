@@ -7,44 +7,42 @@
         body {
             font-family: Arial, sans-serif;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 20px;
-        }
-        .task-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .task-button {
-            background-color: green;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.6rem;
-            margin: 0.3rem;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-        .source-button {
-            background-color: #ddd;
-            color: black;
-            border: none;
-            padding: 0.4rem 1rem;
-            margin-bottom: 0.5rem;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 6px;
-        }
+
         .header-text {
             text-align: center;
             color: purple;
             font-size: 40px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
+
+        .task-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .task-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .source-button {
+            background-color: #ddd;
+            color: black;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
         .source-code {
             white-space: pre-wrap;
             text-align: left;
@@ -54,6 +52,7 @@
             max-height: 400px;
             overflow-y: auto;
             width: 90%;
+            margin: 20px auto;
         }
     </style>
     <script>
@@ -79,15 +78,15 @@
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            const container = document.getElementById("task-buttons");
+            const container = document.getElementById("task-container");
 
             for (let i = 1; i <= 47; i++) {
-                if ([22, 23, 24, 25, 26, 27].includes(i)) continue; // pomijamy brakujące
+                if ([22, 23, 24, 25, 26, 27].includes(i)) continue; // pomiń brakujące
 
                 const fileName = `z${i}_vyn.html`;
 
-                const group = document.createElement("div");
-                group.classList.add("task-group");
+                const row = document.createElement("div");
+                row.classList.add("task-row");
 
                 const openBtn = document.createElement("button");
                 openBtn.textContent = `Otwórz z${i}`;
@@ -99,16 +98,16 @@
                 codeBtn.className = "source-button";
                 codeBtn.onclick = () => fetchSource(fileName, 'source');
 
-                group.appendChild(openBtn);
-                group.appendChild(codeBtn);
-                container.appendChild(group);
+                row.appendChild(openBtn);
+                row.appendChild(codeBtn);
+                container.appendChild(row);
             }
         });
     </script>
 </head>
 <body>
     <h1 class="header-text">Zadania JavaScript Vynohradskyi Oleksandr 3G_2</h1>
-    <div class="container" id="task-buttons">
+    <div id="task-container"></div>
             <button onclick="openWindow('z1_vyn.html', 'okienko')">Otwórz z1</button>
             <button onclick="openWindow('z2_vyn.html', 'okienko')">Otwórz z2</button>
             <button onclick="openWindow('z3_vyn.html', 'okienko')">Otwórz z3</button>
