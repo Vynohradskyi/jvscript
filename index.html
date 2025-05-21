@@ -101,20 +101,7 @@
             for (let i = 1; i <= 47; i++) {
                 if ([22, 23, 24, 25, 26, 27].includes(i)) continue;
 
-                const fileName = `z${i}_vyn.html`;
-
-                const row = document.createElement("div");
-                row.className = "task-row";
-
-                const openBtn = document.createElement("button");
-                openBtn.textContent = `Otwórz z${i}`;
-                openBtn.className = "task-button";
-                openBtn.onclick = () => openWindow(fileName, "okienko");
-
-                const viewBtn = document.createElement("button");
-                viewBtn.textContent = `Zobacz kod z${i}`;
-                viewBtn.className = "source-button";
-                viewBtn.onclick = () => fetchSource(fileName, "source");
+                
 
                 row.appendChild(openBtn);
                 row.appendChild(viewBtn);
