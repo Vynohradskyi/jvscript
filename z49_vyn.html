@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Silnia – Vynohradskyi</title>
+</head>
+<body>
+  <div style="color:blue; font-size:24px;">
+    <script>
+      let n_vyn = parseInt(prompt("Podaj liczbę n:", "0"));
+      let silnia_vyn;
+
+      if (n_vyn === 0) {
+        silnia_vyn = 1;
+      } else {
+        silnia_vyn = 1;
+        for (let i_vyn = 1; i_vyn <= n_vyn; i_vyn++) {
+          silnia_vyn *= i_vyn;
+        }
+      }
+
+      document.write("n = " + n_vyn + "<br>");
+      document.write(n_vyn + "! = " + silnia_vyn);
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Vynohradskyi-Zadanie45</title>
+</head>
+<body>
+  <button onclick="VynohradskyiZadanie45()">Vynohradskyi-Zadanie45</button>
+
+  <div id="wynik"></div>
+  <pre id="kod" style="display:none;"></pre>
+
+  <script>
+    function VynohradskyiZadanie45() {
+      const nazwisko_vyn = "Vynohradskyi";
+      const imie_vyn = "Oleksandr";
+      const litery_nazwisko_vyn = nazwisko_vyn.length;
+
+      const ile_razy_wyswietlic_vyn = (litery_nazwisko_vyn % 4) + 10;
+      const wielkosc_liter_vyn = (litery_nazwisko_vyn % 3) + 40;
+
+      const dana_vyn = parseInt(prompt("Podaj liczbę:"));
+
+      const wynik = document.getElementById("wynik");
+      wynik.innerHTML = `ilość wykonania pętli = ${ile_razy_wyswietlic_vyn}<br>wielkość liter = ${wielkosc_liter_vyn}px<br><br>`;
+
+      let tekst_vyn, kolor_vyn;
+
+      if (dana_vyn % 2 === 0) {
+        tekst_vyn = nazwisko_vyn;
+        kolor_vyn = "blue";
+      } else {
+        tekst_vyn = imie_vyn;
+        kolor_vyn = "green";
+      }
+
+      for (let i_vyn = 0; i_vyn < ile_razy_wyswietlic_vyn; i_vyn++) {
+        wynik.innerHTML += `<span style="color:${kolor_vyn}; font-size:${wielkosc_liter_vyn}px;">${tekst_vyn}</span><br>`;
+      }
+    }
+
+    function pokazKod() {
+      const kod = document.getElementById("kod");
+      kod.style.display = kod.style.display === "none" ? "block" : "none";
+      kod.textContent = document.querySelector("script").textContent;
+    }
+  </script>
+</body>
+</html>

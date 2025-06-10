@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Wyświetlanie z prompt</title>
+</head>
+<body>
+  <div style="color:green; font-size:50px;">
+    <script>
+   
+      let koniec_petli_vyn = prompt("Podaj liczbę, ile razy chcesz wyświetlić komunikat:");
+
+     
+      koniec_petli_vyn = parseInt(koniec_petli_vyn);
+
+      for (let i_vyn = 1; i_vyn <= koniec_petli_vyn; i_vyn++) {
+        document.write("Wyświetlam " + i_vyn + " raz - Vyn<br>");
+      }
+    </script>
+  </div>
+</body>
+</html>

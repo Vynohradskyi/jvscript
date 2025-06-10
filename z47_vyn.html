@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Sprawdzanie trójkąta – Vynohradskyi</title>
+</head>
+<body>
+  <div style="color:blue; font-size:30px;">
+    <script>
+      let a_vyn, b_vyn, c_vyn;
+
+      do {
+        a_vyn = parseFloat(prompt("Podaj bok a:"));
+        b_vyn = parseFloat(prompt("Podaj bok b:"));
+        c_vyn = parseFloat(prompt("Podaj bok c:"));
+      } while (
+        !(a_vyn > 0 && b_vyn > 0 && c_vyn > 0 &&
+          a_vyn + b_vyn > c_vyn &&
+          a_vyn + c_vyn > b_vyn &&
+          b_vyn + c_vyn > a_vyn)
+      );
+
+      document.write("Trójkąt o bokach a = " + a_vyn + ", b = " + b_vyn + ", c = " + c_vyn + " istnieje.");
+    </script>
+  </div>
+</body>
+</html>

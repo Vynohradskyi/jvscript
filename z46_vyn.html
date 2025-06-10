@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Sprawdzenie danych Vynohradskyi</title>
+</head>
+<body>
+  <div style="color:green; font-size:50px;">
+    <script>
+      let h_vyn, a_vyn;
+
+     
+      do {
+        let liczba1 = prompt("Podaj wysokość trójkąta:", "");
+        h_vyn = parseFloat(liczba1);
+      } while (h_vyn <= 0);
+
+      
+      do {
+        let liczba2 = prompt("Podaj podstawę trójkąta:", "");
+        a_vyn = parseFloat(liczba2);
+      } while (!(a_vyn > 0));
+
+    
+      let pole_vyn = (a_vyn * h_vyn) / 2;
+
+    
+      document.write("Pole = " + pole_vyn.toFixed(2) + " cm²<br>");
+    </script>
+  </div>
+</body>
+</html>

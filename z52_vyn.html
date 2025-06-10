@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Rysowanie prostokąta - Vynohradskyi</title>
+  <style>
+    pre {
+      font-family: monospace;
+      font-size: 16px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div style="font-size:2cm; color:green;">
+  Vynohradskyi
+</div>
+<div style="font-size:5mm; color:blue;">
+  Temat: Użycie pętli for do rysowania prostokąta z gwiazdek
+</div>
+
+<pre>
+<script>
+ 
+  let a_vyn = (12 % 4) + 5; //  vynohradskyi -> 12 liter -> a = 5
+  let b_vyn = (9 % 6) + 20; //  oleksandr -> 9 liter -> b = 20
+
+  
+  for (let i_vyn = 1; i_vyn <= b_vyn; i_vyn++) {
+    document.write("*");
+  }
+  document.write("<br>");
+
+
+  for (let j_vyn = 1; j_vyn <= a_vyn - 2; j_vyn++) {
+    document.write("*");
+    for (let k_vyn = 1; k_vyn <= b_vyn - 2; k_vyn++) {
+      document.write("&nbsp;");
+    }
+    document.write("*<br>");
+  }
+
+
+  for (let i_vyn = 1; i_vyn <= b_vyn; i_vyn++) {
+    document.write("*");
+  }
+</script>
+</pre>
+
+</body>
+</html>

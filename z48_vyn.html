@@ -1,18 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Zadanie 48</title>
+  <meta charset="utf-8">
+  <title>Szereg harmoniczny – Vynohradskyi</title>
 </head>
 <body>
-    <h1>Suma szeregu harmonicznego</h1>
-    <p id="result"></p>
+  <div style="color:green; font-size:20px;">
     <script>
-        let suma_vyn = 0;
-        for (let iloczyn_vyn = 1; iloczyn_vyn <= 1000000; iloczyn_vyn++) {
-            suma_vyn += 1 / iloczyn_vyn;
-        }
-        document.getElementById('result').textContent = `Suma szeregu harmonicznego: ${suma_vyn}`;
+      let suma_vyn = 0;
+      let i_vyn = 1;
+
+      while (i_vyn <= 1000000) {
+        suma_vyn = suma_vyn + 1 / i_vyn;
+        i_vyn++;
+      }
+
+      document.write("Suma szeregu harmonicznego od 1 do 1 000 000 = " + suma_vyn.toFixed(6));
     </script>
+  </div>
 </body>
 </html>
